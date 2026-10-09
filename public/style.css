@@ -1,0 +1,327 @@
+/* General layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+a {
+  color: #2457a7;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: #173c77;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+/* Header */
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 35px 0;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  color: #ddd;
+  margin-top: 5px;
+}
+
+header a,
+header a:visited {
+  color: #b9d8ff;
+}
+
+header a:hover {
+  color: #fff;
+}
+
+header nav {
+  margin-top: 15px;
+}
+
+header form {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+header button {
+  background-color: #fff;
+  color: #222;
+  margin-top: 0;
+}
+
+header button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Cards */
+.card,
+.post-card {
+  background-color: #fff;
+  border: 1px solid #e3e7eb;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+  margin-bottom: 16px;
+}
+
+.card > p {
+  margin-top: 10px;
+}
+
+/* Form fields */
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #b8bec5;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #222;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #2457a7;
+  outline-offset: 2px;
+  border-color: #2457a7;
+}
+
+/* Buttons */
+button,
+.edit-button {
+  display: inline-block;
+  min-height: 44px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #222;
+  color: #fff;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #2457a7;
+  outline-offset: 3px;
+}
+
+header a:focus-visible,
+header button:focus-visible {
+  outline-color: #b9d8ff;
+}
+
+/* Blog posts */
+.posts-title {
+  margin: 30px 0 20px;
+}
+
+.post-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.post-top > div {
+  min-width: 0;
+}
+
+.post-top h2 {
+  margin-bottom: 5px;
+}
+
+.post-info {
+  color: #626970;
+  font-size: 0.9rem;
+}
+
+.category {
+  flex-shrink: 0;
+  background-color: #edf1f5;
+  color: #333;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.post-content {
+  margin: 20px 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Edit and delete controls */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.actions form {
+  margin: 0;
+}
+
+.actions button {
+  margin-top: 0;
+}
+
+.edit-button {
+  background-color: #e3e7eb;
+  color: #222;
+}
+
+.edit-button:hover {
+  background-color: #cfd5dc;
+  color: #222;
+}
+
+.delete-button {
+  background-color: #b83232;
+  margin-top: 0;
+}
+
+.delete-button:hover {
+  background-color: #922727;
+}
+
+/* Form error messages */
+[role="alert"] {
+  background-color: #fff0f0;
+  color: #8a2020;
+  border: 1px solid #e8b8b8;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+/* Empty feed */
+.empty {
+  text-align: center;
+  padding: 40px;
+}
+
+.empty p {
+  color: #626970;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: #626970;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  header {
+    padding: 25px 0;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .card,
+  .post-card {
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .post-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .category {
+    width: fit-content;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions form,
+  .actions a,
+  .actions button {
+    width: 100%;
+  }
+
+  .card > form > button {
+    width: 100%;
+  }
+
+  .empty {
+    padding: 25px 18px;
+  }
+}
