@@ -6,15 +6,16 @@ const pool = require("./db");
 const app = express();
 const PORT = 3000;
 
-// Tell Express to use EJS
+// telling express to use EJS
 app.set("view engine", "ejs");
 
-// Allow Express to read information submitted from forms
+// allowing express to read information submitted from forms
 app.use(express.urlencoded({ extended: true }));
 
-// Allow Express to use files from the public folder
+// allowing express to use files from the public folder
 app.use(express.static("public"));
-// Remember the signed-in user
+
+// remember the signed-in user
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -28,25 +29,25 @@ app.use(
   }),
 );
 
-// Make the signed-in user available to EJS pages
+// makeing the signed-in user available to EJS pages
 app.use((req, res, next) => {
   res.locals.user = req.session.user || null;
   next();
 });
 
-// Require sign-in for protected actions
+// require sign-in for protected actions
 function requireLogin(req, res, next) {
   if (!req.session.user) {
     return res.redirect("/signin");
   }
   next();
 }
-// SIGN-UP PAGE
+// Sign up page
 app.get("/signup", (req, res) => {
   res.render("signup", { error: null });
 });
 
-// CREATE AN ACCOUNT
+// creating an account
 app.post("/signup", async (req, res, next) => {
   const user_id = String(req.body.user_id || "").trim();
   const name = String(req.body.name || "").trim();
@@ -93,12 +94,12 @@ app.post("/signup", async (req, res, next) => {
   }
 });
 
-// SIGN-IN PAGE
+// sign in page
 app.get("/signin", (req, res) => {
   res.render("signin", { error: null });
 });
 
-// SIGN IN
+// sign in
 app.post("/signin", async (req, res, next) => {
   const user_id = String(req.body.user_id || "").trim();
   const password = String(req.body.password || "");
@@ -115,7 +116,7 @@ app.post("/signin", async (req, res, next) => {
       });
     }
 
-    // Start a fresh session after successful sign-in
+    // start a fresh session after successful sign in
     req.session.regenerate((error) => {
       if (error) return next(error);
 
@@ -131,7 +132,7 @@ app.post("/signin", async (req, res, next) => {
   }
 });
 
-// SIGN OUT
+// sign out
 app.post("/signout", (req, res, next) => {
   req.session.destroy((error) => {
     if (error) return next(error);
@@ -141,7 +142,7 @@ app.post("/signout", (req, res, next) => {
   });
 });
 
-// HOME PAGE: load posts from PostgreSQL
+// home page: load posts from PostgreSQL
 app.get("/", async (req, res, next) => {
   try {
     const result = await pool.query(`
@@ -165,8 +166,7 @@ app.get("/", async (req, res, next) => {
   }
 });
 
-// CREATE A NEW POST
-// CREATE A NEW POST
+// creating a new post
 app.post("/posts", requireLogin, async (req, res, next) => {
   const title = String(req.body.title || "").trim();
   const content = String(req.body.content || "").trim();
@@ -206,8 +206,7 @@ app.post("/posts", requireLogin, async (req, res, next) => {
   }
 });
 
-// EDIT PAGE
-// EDIT PAGE: load a post owned by the signed-in user
+// edit page
 app.get("/posts/:id/edit", requireLogin, async (req, res, next) => {
   const id = Number(req.params.id);
 
@@ -242,8 +241,7 @@ app.get("/posts/:id/edit", requireLogin, async (req, res, next) => {
   }
 });
 
-// UPDATE POST
-// UPDATE POST: only the creator can save changes
+// update post
 app.post("/posts/:id/edit", requireLogin, async (req, res, next) => {
   const id = Number(req.params.id);
   const title = String(req.body.title || "").trim();
@@ -289,7 +287,7 @@ app.post("/posts/:id/edit", requireLogin, async (req, res, next) => {
   }
 });
 
-// DELETE POST: only the creator can delete it
+// delete post
 app.post("/posts/:id/delete", requireLogin, async (req, res, next) => {
   const id = Number(req.params.id);
 
@@ -317,7 +315,7 @@ app.post("/posts/:id/delete", requireLogin, async (req, res, next) => {
   }
 });
 
-// START THE SERVER
+// starting the server
 app.listen(PORT, () => {
   console.log(`Blog application running at http://localhost:${PORT}`);
 });

@@ -5,7 +5,7 @@ const pool = new Pool();
 
 module.exports = pool;
 
-// Test the database connection
+// testing the database connection
 if (require.main === module) {
   pool
     .query("SELECT COUNT(*) AS total FROM public.blogs")

@@ -1,7 +1,7 @@
 -- CS-312 Mini Project 3
--- Create a database named BlogDB in pgAdmin first.
--- Open its Query Tool and run this file once.
--- Demo passwords match the application's current plain-text login.
+-- creating a database named BlogDB in pgAdmin first.
+-- open its Query Tool and run this file once.
+-- demo passwords match the application's current plain-text login.
 
 BEGIN;
 
@@ -24,7 +24,7 @@ CREATE TABLE public.blogs (
         REFERENCES public.users(user_id)
 );
 
--- Three demo accounts
+-- 3 demo accounts
 INSERT INTO public.users (user_id, password, name)
 VALUES
     ('dhruti', 'DemoDhruti123!', 'Dhruti Patel'),

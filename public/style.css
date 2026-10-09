@@ -34,7 +34,7 @@ p {
   overflow-wrap: anywhere;
 }
 
-/* Header */
+/* header */
 header {
   background-color: #222;
   color: #fff;
@@ -79,7 +79,7 @@ header button:hover {
   background-color: #e6e6e6;
 }
 
-/* Cards */
+/* cards */
 .card,
 .post-card {
   background-color: #fff;
@@ -98,7 +98,7 @@ header button:hover {
   margin-top: 10px;
 }
 
-/* Form fields */
+/* form fields */
 label {
   display: block;
   font-weight: bold;
@@ -134,7 +134,7 @@ select:focus {
   border-color: #2457a7;
 }
 
-/* Buttons */
+/* buttons */
 button,
 .edit-button {
   display: inline-block;
@@ -171,7 +171,7 @@ header button:focus-visible {
   outline-color: #b9d8ff;
 }
 
-/* Blog posts */
+/* blog posts */
 .posts-title {
   margin: 30px 0 20px;
 }
@@ -212,7 +212,7 @@ header button:focus-visible {
   overflow-wrap: anywhere;
 }
 
-/* Edit and delete controls */
+/* editing and delete controls */
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -248,7 +248,7 @@ header button:focus-visible {
   background-color: #922727;
 }
 
-/* Form error messages */
+/* form error messages */
 [role="alert"] {
   background-color: #fff0f0;
   color: #8a2020;
@@ -258,7 +258,7 @@ header button:focus-visible {
   margin-bottom: 16px;
 }
 
-/* Empty feed */
+/* empty feed */
 .empty {
   text-align: center;
   padding: 40px;
@@ -269,14 +269,14 @@ header button:focus-visible {
   margin-top: 10px;
 }
 
-/* Footer */
+/* footer */
 footer {
   text-align: center;
   padding: 30px 15px;
   color: #626970;
 }
 
-/* Mobile layout */
+/* mobile layout */
 @media (max-width: 600px) {
   .container {
     width: calc(100% - 28px);
